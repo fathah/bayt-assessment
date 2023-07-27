@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bayt.com Slider</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main>
+      <!-- THE PARENT CONTAINER OF THE SLIDER
+      // Slides can be added dynamcally
+      -->
+      <div class="slide-container">
+        <!-- SLIDE 1 -->
+        <div class="slide fade">
+          <p>
+            "Bayt.com's job listings and user-friendly platform made my job
+            search easy with personalized recommendations and support services."
+          </p>
+          <div class="person-info">
+            <img src="img.jpg" />
+            <div class="name">Mr. Abdul Fathah KA</div>
+            <div class="title">Full Stack Developer</div>
+          </div>
+          <button>View Sample CV</button>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide fade">
+          <p>
+            "With Bayt.com, finding a job was hassle-free. Their professional
+            network and insightful articles helped me succeed in my career."
+          </p>
+          <div class="person-info">
+            <img src="img.jpg" />
+            <div class="name">Mr. Hazem Qannash</div>
+            <div class="title">HR Manager at Bayt.com</div>
+          </div>
+          <button>View Sample CV</button>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide fade">
+          <p>
+            "I highly recommend Bayt.com for its comprehensive job listings and
+            helpful resources. It's the perfect platform for job seekers."
+          </p>
+          <div class="person-info">
+            <img src="img.jpg" />
+            <div class="name">Mardig Khatchadourian</div>
+            <div class="title">Talent Acquisition Specialist at Bayt.com</div>
+          </div>
+          <button>View Sample CV</button>
+        </div>
+
+        <a class="prev" onclick="changeSlide(-1)">❮</a>
+        <a class="next" onclick="changeSlide(1)">❯</a>
+      </div>
+      <br />
+<!-- This can be added dynamically -->
+      <div style="text-align: center">
+        <span class="navdot" onclick="setCurrentSlide(1)"></span>
+        <span class="navdot" onclick="setCurrentSlide(2)"></span>
+        <span class="navdot" onclick="setCurrentSlide(3)"></span>
+      </div>
+    </main>
+    <!-- IMPORT SLIDER SCRIPT -->
+    <script src="slider.js"></script>
+    <script>
+      let slides = document.getElementsByClassName("slide");
+      let slider = new Slider(slides, true, 5000);
+
+      function changeSlide(addNum) {
+        slider.changeSlide(addNum);
+      }
+
+      function setCurrentSlide(num) {
+        slider.setCurrentSlide(num);
+      }
+    </script>
+  </body>
+</html>
