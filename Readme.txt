@@ -1,1 +1,0 @@
-The files in this directory is specifically made as part of interview assessment at Bayt.com

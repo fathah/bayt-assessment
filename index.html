@@ -8,13 +8,18 @@
   </head>
 
   <body>
-    <main>
-      <!-- THE PARENT CONTAINER OF THE SLIDER
-      // Slides can be added dynamcally
+    <main id="bayt-slider">
+      <!-- 
+      # Slides can be added dynamcally
+      # Slide Content can be any Components
+      # Slider Heirarchy => 
+            - Main Container (with id `bayt-slider`)
+            --- Slider Container (with class name `slide-container`)
+            ----- Slide(s) (with class name `slide`)
       -->
       <div class="slide-container">
         <!-- SLIDE 1 -->
-        <div class="slide fade">
+        <div class="slide">
           <p>
             "Bayt.com's job listings and user-friendly platform made my job
             search easy with personalized recommendations and support services."
@@ -24,11 +29,11 @@
             <div class="name">Mr. Abdul Fathah KA</div>
             <div class="title">Full Stack Developer</div>
           </div>
-          <button>View Sample CV</button>
+          <button>View CV Sample</button>
         </div>
 
         <!-- SLIDE 2 -->
-        <div class="slide fade">
+        <div class="slide">
           <p>
             "With Bayt.com, finding a job was hassle-free. Their professional
             network and insightful articles helped me succeed in my career."
@@ -38,11 +43,11 @@
             <div class="name">Mr. Hazem Qannash</div>
             <div class="title">HR Manager at Bayt.com</div>
           </div>
-          <button>View Sample CV</button>
+          <button>View CV Sample</button>
         </div>
 
         <!-- SLIDE 3 -->
-        <div class="slide fade">
+        <div class="slide">
           <p>
             "I highly recommend Bayt.com for its comprehensive job listings and
             helpful resources. It's the perfect platform for job seekers."
@@ -52,33 +57,30 @@
             <div class="name">Mardig Khatchadourian</div>
             <div class="title">Talent Acquisition Specialist at Bayt.com</div>
           </div>
-          <button>View Sample CV</button>
+          <button>View CV Sample</button>
         </div>
-
-        <a class="prev" onclick="changeSlide(-1)">❮</a>
-        <a class="next" onclick="changeSlide(1)">❯</a>
       </div>
       <br />
-<!-- This can be added dynamically -->
-      <div style="text-align: center">
-        <span class="navdot" onclick="setCurrentSlide(1)"></span>
-        <span class="navdot" onclick="setCurrentSlide(2)"></span>
-        <span class="navdot" onclick="setCurrentSlide(3)"></span>
-      </div>
     </main>
     <!-- IMPORT SLIDER SCRIPT -->
     <script src="slider.js"></script>
+
+    <!-- INITIALIZE SLIDER -->
     <script>
-      let slides = document.getElementsByClassName("slide");
-      let slider = new Slider(slides, true, 5000);
+      const slides = document.querySelectorAll(".slide");
+      const autoPlay = true;
+      const interval = 5000;
+      const showNavDots = true;
+      const showNavArrows = true;
 
-      function changeSlide(addNum) {
-        slider.changeSlide(addNum);
-      }
-
-      function setCurrentSlide(num) {
-        slider.setCurrentSlide(num);
-      }
+      // Just initialize the slider. And it is set to go.
+      let slider = new Slider(
+        slides,
+        autoPlay,
+        interval,
+        showNavDots,
+        showNavArrows
+      );
     </script>
   </body>
 </html>
