@@ -22,6 +22,33 @@ class Slider {
     this.init();
   }
 
+  init() {
+    // Set the first slide to be the current slide
+    this.slides.forEach((slide, index) => {
+      slide.style.left = `${index * 100}%`;
+    });
+
+    // If `autoplay` is true, then call autoPlaySlides()
+    if (this.autoPlay) {
+      this.autoPlaySlides();
+    }
+
+    // If `showNavDots` is true, then call createNavDots()
+    if (this.showNavDots) {
+      const nav = document.createElement("div");
+      nav.setAttribute("id", "slide-nav");
+      nav.classList.add("slide-nav");
+      document.getElementById("bayt-slider").appendChild(nav);
+      this.createNavDots();
+    }
+
+    // If `showNavArrows` is true, then call createNavArrows()
+    if (this.showNavArrows) {
+      this.createNavArrows();
+    }
+
+  }
+
   // Getters and setters
 
   nextSlide() {
@@ -70,31 +97,6 @@ class Slider {
     }
   }
 
-  init() {
-    // Set the first slide to be the current slide
-    this.slides.forEach((slide, index) => {
-      slide.style.left = `${index * 100}%`;
-    });
-
-    // If `autoplay` is true, then call autoPlaySlides()
-    if (this.autoPlay) {
-      this.autoPlaySlides();
-    }
-
-    // If `showNavDots` is true, then call createNavDots()
-    if (this.showNavDots) {
-      const nav = document.createElement("div");
-      nav.setAttribute("id", "slide-nav");
-      nav.classList.add("slide-nav");
-      document.getElementById("bayt-slider").appendChild(nav);
-      this.createNavDots();
-    }
-
-    // If `showNavArrows` is true, then call createNavArrows()
-    if (this.showNavArrows) {
-      this.createNavArrows();
-    }
-  }
 
   createNavDots() {
     // Create the navigation dots
